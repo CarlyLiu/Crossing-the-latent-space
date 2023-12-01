@@ -1,0 +1,695 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>weblog about advanced project</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c3745ba8-d729-466b-a709-ea7367238c39" class="page sans"><header><h1 class="page-title">weblog about advanced project</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><del>Plan 1.0 </del></summary><div class="indented"><p id="3d7817b2-66a2-4075-bf18-bd71a71110e6" class="">DragGAN-Model local deployment fails</p><p id="ba2608b9-752f-4a09-b8dd-9768a492a264" class=""><a href="https://github.com/XingangPan/DragGAN">https://github.com/XingangPan/DragGAN</a></p><p id="2a5c5977-1635-4e34-b609-a0786455b265" class="">use the gesture based leap motion as a interactive way to make a real-time installation</p><p id="fb638214-70ec-49fc-aa36-d9cdbf11959f" class=""><strong>real-time  </strong><mark class="highlight-orange_background">action perception loop</mark></p><p id="f19c1dc9-ef70-486a-9061-3db569cdb5e3" class=""><strong>Gestural Inputs</strong></p><figure id="4a554404-872e-400d-8bee-69ee836b3188"><a href="https://web.archive.org/web/20220419125828id_/http://ceur-ws.org/Vol-3124/paper5.pdf" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href">https://web.archive.org/web/20220419125828id_/http://ceur-ws.org/Vol-3124/paper5.pdf</div></div></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><del>Plan 2.0</del></summary><div class="indented"><p id="49c47bf9-b2ac-4f5f-8395-47cf937e82d3" class="">real-time generated interactive image </p><p id="1bc95b90-3cd6-49c5-bee3-29260253fdec" class=""><strong>shadow play as a interactive way to control the generated model pose in a real-time.</strong></p><p id="754f7a9c-691b-4fbd-9837-eb53cf2f5484" class=""><strong>amateur can use the ML to generate the image in an unpre-learned situation.</strong></p><figure id="61f3003b-d578-448a-b248-2f39970826ed"><a href="https://miro.com/app/board/uXjVNU0fuKo=/?share_link_id=184066691788" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">realtime interactive image</div></div><div class="bookmark-href"><img src="https://static-website.miro.com/miro-site-pages-assets/static/application-renderer/staging/favicons/android-chrome-192x192.png" class="icon bookmark-icon"/>https://miro.com/app/board/uXjVNU0fuKo=/?share_link_id=184066691788</div></div><img src="https://miro.com/api/v1/boards/uXjVNU0fuKo=/picture?etag=R3458764515180889783_0_20230906" class="bookmark-image"/></a></figure><p id="6dfe3fe2-0b39-41f2-a18f-16650065ad42" class="">
+</p><ul id="aeabe8fa-7f54-477b-ad4c-4b4bff1efcd2" class="bulleted-list"><li style="list-style-type:disc">openpose test</li></ul><ul id="dd1b7b76-1150-4d7d-bb04-a6c77deb495c" class="bulleted-list"><li style="list-style-type:disc">sd</li></ul><p id="fc96a0ce-5b96-46c6-b516-71280abd3d2e" class="">problem:can’t control the result in within expected range</p><p id="ef9c979a-4416-4c97-ba1c-d5d95952c38a" class="">
+</p></div></details><h2 id="220d231b-4bee-4113-81bf-7bbe1b354b6f" class="">final plan-<strong>Stylegan3 model-based real-time gesture interaction</strong></h2><p id="44eed8f2-b817-49b9-b5d9-cba2e69c35be" class="">use the gesture to make a smooth path in latent space </p><figure id="37fce25e-9bd4-4b71-bfb9-8bf766fe5ebf"><a href="https://artsexperiments.withgoogle.com/xdegrees/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">X Degrees of Separation by Mario Klingemann</div><div class="bookmark-description">I discovered this path between artworks with the X Degrees of Separation experiment by @googlearts #GoogleArtsLab</div></div><div class="bookmark-href"><img src="https://artsexperiments.withgoogle.com/xdegrees/favicon.png" class="icon bookmark-icon"/>https://artsexperiments.withgoogle.com/xdegrees/</div></div><img src="https://artsexperiments.withgoogle.com/xdegrees/thumbnail/8gHu5Z5RF4BsNg/BgHD_Fxb-V_K3A/" class="bookmark-image"/></a></figure><p id="6c423076-0fde-48d6-81f9-ffc8ac2fd3d4" class="">
+</p><h2 id="f01885f3-17d7-4abe-9889-ab24749e0f9e" class="">step</h2><ol type="1" id="04a9ad44-4c4a-4167-9ae5-201ace752fc2" class="numbered-list" start="1"><li>make a smooth walk in stylegan3</li></ol><ol type="1" id="9a83c552-d8e5-4677-97b7-253058d4b157" class="numbered-list" start="2"><li> leapmotion/cv to detect the gesture</li></ol><ol type="1" id="698facdb-8f37-4192-8c4e-cd503dd057c8" class="numbered-list" start="3"><li>real-time/GUI</li></ol><ol type="1" id="70bed7bf-08c8-45ac-8781-651ac4818869" class="numbered-list" start="4"><li>use the gesture to control the total process</li></ol><p id="34268ac0-1fae-4bb0-bc3d-016ab9118ab5" class="">
+</p><h3 id="ff6fe93e-55bd-4fe1-8937-cc015440c68b" class="">STEP 0 : preliminary</h3><h3 id="69259925-51bf-4276-adfa-3b7d997feb8e" class="">Stylegan3 Local Deployment（finish</h3><pre id="d4ca1d5d-c581-4b4e-bfff-78ded5e73a6e" class="code"><code>Import error: DLL loading failed when importing bias_act_plugin: The specified module could not be found.</code></pre><p id="79d20487-ddee-457b-bffe-3ffcc92c3813" class="">
+</p><figure id="a477f47d-21ad-4c48-82c5-d5b91e2d181e"><a href="https://colab.research.google.com/github/jmoso13/Painting_with_StyleGAN/blob/main/Painting_with_StyleGAN.ipynb" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Google Colaboratory</div></div><div class="bookmark-href"><img src="https://ssl.gstatic.com/colaboratory-static/common/27ed55654157d4fccaba00d81cbe557a/img/favicon.ico" class="icon bookmark-icon"/>https://colab.research.google.com/github/jmoso13/Painting_with_StyleGAN/blob/main/Painting_with_StyleGAN.ipynb</div></div><img src="https://colab.research.google.com/img/colab_favicon_256px.png" class="bookmark-image"/></a></figure><p id="57c94f71-949b-422d-b322-dd8bc525e45e" class="">
+</p><h3 id="6b536362-a900-4f25-a420-8fefd934f3f1" class="">STEP 1 : smooth path</h3><pre id="f2cc34c4-7115-46c4-97fb-de6fedeb252d" class="code"><code>def lerp(u, v, a):
+        # interpolation
+        return a * u + (1 - a) * v</code></pre><p id="9e0d6005-fa55-48cd-9159-dc308e66e323" class="">
+</p><h3 id="eb4e0c71-a703-44ef-afe9-ff5d9aa3c269" class="">STEP 2 : gesture detection </h3><h3 id="6a3ed63e-e291-481c-84ac-d0b0eb90f3bd" class="">Leap motion python SDK</h3><p id="ebfe855e-8175-4050-8de2-905ef965ab23" class="">used have the python version SDK but can’t use now</p><p id="a3699acd-c909-444a-a589-926a91aa7016" class="">Older versions of the interface are not supported in today&#x27;s version</p><figure id="28e0d30b-83f5-4b9f-b011-75f9c4b3adb4"><a href="https://support.leapmotion.com/hc/en-us/articles/360004362237" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Generating a Python 3.3.0 Wrapper with SWIG 2.0.9</div><div class="bookmark-description">With a few steps, you can build your own Python 3.3.0 wrapper. On Windows: Building LeapPython.pyd on Windows (32-bit Python 3.3.0 for this example) :   Install Visual Studio (any of 2008, 2010, or...</div></div><div class="bookmark-href"><img src="https://theme.zdassets.com/theme_assets/753762/a669fcdcbd35a983ed42eaaac1b778e7b373b133.png" class="icon bookmark-icon"/>https://support.leapmotion.com/hc/en-us/articles/360004362237</div></div><img src="https://theme.zdassets.com/theme_assets/753762/6410d9dde9c00363836e8e5be1c76c031e4609f4.png" class="bookmark-image"/></a></figure><p id="5657f87b-5596-42b9-a5ab-41fdfcf603fc" class="">
+</p><h3 id="29846e32-42f0-414d-8ca6-a8abe33b93d0" class="">Opnecv</h3><p id="2444cb27-dc0a-435d-9e63-ba0a301426e2" class="">opencv&#x27;s get data can&#x27;t access stylegan3 model</p><figure id="b5147a06-e522-446f-960f-980929941dec"><a href="https://www.section.io/engineering-education/creating-a-hand-tracking-module/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Creating a Hand Tracking Module using Python, OpenCv, and MediaPipe | Engineering Education (EngEd) Program | Section</div><div class="bookmark-description">This tutorial will discuss how to create a hand tracking module. Hand tracking is the process in which a computer uses computer vision to detect a hand from an input image and keeps focus on the hand&#x27;s movement.</div></div><div class="bookmark-href"><img src="https://www.section.io/favicon.png?v=1" class="icon bookmark-icon"/>https://www.section.io/engineering-education/creating-a-hand-tracking-module/</div></div><img src="https://www.section.io/engineering-education/creating-a-hand-tracking-module/hero.jpg" class="bookmark-image"/></a></figure><p id="e25155d5-24c1-46a4-96d8-dd24635d5d63" class="">
+</p><h3 id="a4ec6511-61b2-4b7d-b286-7083a5f1a427" class="">STEP 3 : visulizer</h3><p id="7d84732c-5bf4-4fe5-8da5-b967bfd9eb21" class="">
+</p><p id="3459ca2a-aecf-4874-8b76-515d2dcd4b8b" class="">
+</p><h3 id="509e6932-2fff-43bb-b11c-87bc167533de" class="">STEP 4 : gesture control the </h3><h3 id="75b351f7-8114-438c-82a9-3f5384510ad8" class="">Using touchdesigner to do data bridging for leapmotion</h3><p id="d2ee6239-0da5-479d-a4ea-df0f5061161e" class="">Data transmission cannot support real-time effects</p><p id="70405b68-03ac-401e-8f3f-f02ff46df727" class="">
+</p><h3 id="aa21f4dd-3d29-49da-b379-b2a99424635e" class="">Build server to transfer data from opencv to stylegan3 model</h3><p id="e591405e-5045-48c0-8177-d7d3e80f8026" class="">flask + socketio</p><p id="30448107-925b-4228-a304-a17f65264644" class="">
+</p><p id="cff47fc5-d154-4eca-9ae2-a2e158d53f13" class="">
+</p><p id="bc7b76e3-0bc0-4580-9c2c-4614bdae9895" class="">
+</p><p id="928d977f-ba3e-4bfe-8331-90531ae664fc" class="">software design method</p><p id="83d1805a-1877-4c89-b8e3-8606d6cac646" class="">practical:</p><p id="8de4542b-c623-4105-8e7d-18ff6cd1d4fe" class=""><a href="https://www.geeksforgeeks.org/what-is-dfddata-flow-diagram/">https://www.geeksforgeeks.org/what-is-dfddata-flow-diagram/</a></p><p id="cfb5adfb-3d22-43d9-b64d-be3050e8a0de" class="">design methods：</p><p id="08dff819-0262-4830-a633-8f705bead910" class=""><a href="https://userpages.umbc.edu/~khoo/survey1.html">https://userpages.umbc.edu/~khoo/survey1.html</a></p><p id="ff1714ef-e066-490d-a4cc-848db83acf57" class="">Example - 4.4 Drummer-model interactive deployment</p><figure id="4dada151-af81-47f4-8b77-3ef9d4955659"><a href="https://arxiv.org/abs/2202.12243" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Flat Latent Manifolds for Human-machine Co-creation of Music</div><div class="bookmark-description">The use of machine learning in artistic music generation leads to controversial discussions of the quality of art, for which objective quantification is nonsensical. We therefore consider a...</div></div><div class="bookmark-href"><img src="https://static.arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" class="icon bookmark-icon"/>https://arxiv.org/abs/2202.12243</div></div><img src="https://static.arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png" class="bookmark-image"/></a></figure><p id="96f99fe6-da94-4491-9231-697515e4a4ba" class="">
+</p><p id="b3c9c146-52f9-4344-b89a-838cc899f3ed" class="">
+</p><p id="dc127135-734a-44a5-8d38-1ddb0b4b0eda" class="">review paper</p><figure id="52a5c6d6-577c-4274-9b51-756dd1c3f13b"><a href="https://dl.acm.org/doi/10.1145/3532106.3533489" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Design Space of Livestreaming Equipment Setups: Tradeoffs, Challenges, and Opportunities | Proceedings of the 2022 ACM Designing Interactive Systems Conference</div><div class="bookmark-description">Cognitive Science, UC San Diego, United States</div></div><div class="bookmark-href"><img src="https://dl.acm.org/pb-assets/head-metadata/apple-touch-icon-1574252172393.png" class="icon bookmark-icon"/>https://dl.acm.org/doi/10.1145/3532106.3533489</div></div><img src="https://dl.acm.org/cms/asset/407ca5de-7917-4ba7-9cef-472ba122f523/3532106.cover.jpg" class="bookmark-image"/></a></figure><h2 id="1bb7d226-ef6e-41d7-9fca-13b01ba6505a" class="">Reference</h2><p id="fabaff36-153e-4cf9-841c-4d547fc62248" class="">1.Gestural Inputs as Control Interaction for Generative</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
