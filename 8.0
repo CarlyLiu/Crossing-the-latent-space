@@ -1,0 +1,8 @@
+Collecting click
+  Downloading click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting colorama (from click)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading click-8.1.7-py3-none-any.whl (97 kB)
+   ---------------------------------------- 97.9/97.9 kB 254.9 kB/s eta 0:00:00
+Installing collected packages: colorama, click
+Successfully installed click-8.1.7 colorama-0.4.6
