@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import math
+import time
 import try1GUIvisualizer
 
 class handTracker():
@@ -58,21 +59,84 @@ class handTracker():
                     distance = math.sqrt((thumb_tip[0] - index_tip[0]) ** 2 + (thumb_tip[1] - index_tip[1]) ** 2)
                     if distance <= 20 :
                         print(f"pinch detected")
+
         return lmlist
 
-def main():
-    cap = cv2.VideoCapture(0)
-    tracker = handTracker()
+# def main():
+#     cap = cv2.VideoCapture(0)
+#     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+#     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+#     cap.set(cv2.CAP_PROP_FPS, 30)
+#     tracker = handTracker()
+#
+#     fps = cap.get(cv2.CAP_PROP_FPS)
+#     print(f"Video FPS: {fps}")
+#
+#     while True:
+#         success,image = cap.read()
+#         image = tracker.handsFinder(image)
+#         lmList = tracker.positionFinder(image)
+#         if len(lmList) != 0:
+#             print(lmList[0])
+#
+#         cv2.putText(frame, f"FPS: {fps_current:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 1)
+#         cv2.imshow("Video",image)
+#         cv2.waitKey(1)
 
+
+def main():
+    cap = cv2.VideoCapture(1)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+    cap.set(cv2.CAP_PROP_FPS, 30)
+    tracker = handTracker()
+    fps_current = 0
+
+    # 获取视频流的FPS
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    print(f"Video FPS: {fps}")
+
+    # 初始化计时器
+    start_time = time.time()
+    frames_count = 0
+
+    #     while True:
+    #         success,image = cap.read()
+    #         image = tracker.handsFinder(image)
+    #         lmList = tracker.positionFinder(image)
+    #         if len(lmList) != 0:
+    #             print(lmList[0])
+    #
+    #         cv2.putText(frame, f"FPS: {fps_current:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 1)
+    #         cv2.imshow("Video",image)
+    #         cv2.waitKey(1)
     while True:
-        success,image = cap.read()
+        ret, image = cap.read()
         image = tracker.handsFinder(image)
         lmList = tracker.positionFinder(image)
         if len(lmList) != 0:
             print(lmList[0])
 
-        cv2.imshow("Video",image)
-        cv2.waitKey(1)
+        # 计算帧率
+        frames_count += 1
+        elapsed_time = time.time() - start_time
+        if elapsed_time > 1:  # 每秒更新一次帧率
+            fps_current = frames_count / elapsed_time
+            print(f"Current FPS: {fps_current:.2f}")
+            frames_count = 0
+            start_time = time.time()
+
+        # 在窗口标题中显示帧率
+        cv2.putText(image, f"FPS: {fps_current:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+        cv2.imshow("Video", image)
+
+        key = cv2.waitKey(1)
+        if key == 27:  # 按下Esc键退出循环
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
